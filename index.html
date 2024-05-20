@@ -1,494 +1,1015 @@
-<meta name="description" content="Shengyu Zhang&#39;s home page">
-<link rel="stylesheet" href="jemdoc.css" type="text/css">
-<link rel="shortcut icon" href="zju.png">
-<title>Shengyu Zhang's Homepage @ Zhejiang University</title>
+<!doctype html>
+<html>
+
+<head>
+<title><strong><u>Shengyu Zhang</u></strong>'s Homepage @ Zhejiang University</title>
+
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="keywords" content="<strong><u>Shengyu Zhang</u></strong>, Zhejiang University"> 
+<meta name="description" content="<strong><u>Shengyu Zhang</u></strong>'s home page">
+<link rel="stylesheet" href="css/jemdoc.css" type="text/css" />
+<link rel="shortcut icon" href="images/zju.png">
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-137722442-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+<!-- Show more content -->
+<script type="text/javascript">
+    function toggle_vis(id) {
+        // var e = document.getElementById(id);
+        var e = document.getElementsByClassName(id);
+        var showText = document.getElementById("showText");
+        for (var i = 0; i < e.length; i++) {
+            if (e[i].style.display == "none") {
+                e[i].style.display = "inline";
+                showText.innerHTML = "[Show less]";
+            } else {
+                e[i].style.display = "none";
+                showText.innerHTML = "[Show more]";
+            }
+        }
+    }
+
+    function toggle_my_vis(id, showid, t1="[hide]", t2="[show]") {
+        // var e = document.getElementById(id);
+        var e = document.getElementsByClassName(id);
+        var showText = document.getElementById(showid);
+        for (var i = 0; i < e.length; i++) {
+            if (e[i].style.display == "none") {
+                e[i].style.display = "inline";
+                showText.innerHTML = t1;
+            } else {
+                e[i].style.display = "none";
+                showText.innerHTML = t2;
+            }
+        }
+    }
+
+
+    function toggle_research_vis(target, tabElement) {
+        var is_current_summary = 0;
+
+        var e = document.getElementsByClassName("research_summary");
+        for (var i = 0; i < e.length; i++) {
+            if (e[i].id == target) {
+                if (e[i].style.display == "inline") {
+                    is_current_summary = 1;
+                } else {
+                    e[i].style.display = "inline";
+                }
+            } else {
+                e[i].style.display = "none";
+            }
+        }
+
+        var e = document.getElementsByClassName("progress_button");
+        for (var i = 0; i < e.length; i++) {
+            if (e[i].id == target + "_button") {
+                if (is_current_summary == 0) {
+                    e[i].style.display = "inline";
+                }
+            } else {
+                e[i].style.display = "none";
+            }
+        }
+
+        var e = document.getElementsByClassName("goal_tabs");
+        for (var i = 0; i < e.length; i++) {
+            if (e[i].id != target + "_goal_tabs") {
+                e[i].style.display = "none";
+            }
+        }
+
+        var e = document.getElementsByClassName("highlight_research_tab");
+        for (var i = 0; i < e.length; i++) {
+            e[i].className = "research_tab";
+        }
+        tabElement.className = "highlight_research_tab"
+    }
+
+    function toggle_goal_vis(id, goal_tabs_id, goal) {
+        var e = document.getElementById(id);
+        e.style.display = "none";
+        var goal_tabs = document.getElementById(goal_tabs_id);
+        goal_tabs.style.display = "inline";
+
+        var goal_tab = document.getElementById(goal + "_tab");
+        toggle_goal_progress_vis(goal_tab);
+        // add_goal_progress_div(goal);
+    }
+
+    function toggle_goal_progress_vis(tabElement) {
+        var target = tabElement.id;
+        target = target.substring(0, target.length - 4);
+
+        var e = document.getElementsByClassName("goal_progress");
+        for (var i = 0; i < e.length; i++) {
+            if (e[i].id == target) {
+                e[i].style.display = "inline";
+            } else {
+                e[i].style.display = "none";
+            }
+        }
+
+        var e = document.getElementsByClassName("highlight_goal_tab");
+        for (var i = 0; i < e.length; i++) {
+            e[i].className = "goal_tab";
+        }
+        tabElement.className = "highlight_goal_tab"
+
+        add_goal_progress_div(target);
+    }
+
+    function add_goal_progress_div(goal) {
+        var e = document.getElementById(goal);
+        if (e && e.children.length == 0) {
+            var children = Array.from(document.getElementsByClassName(goal));
+            for (var i = 0; i < children.length; i++) {
+                var cloned_div = children[i].cloneNode(true);
+                cloned_div.className = "publication_container";
+                e.appendChild(cloned_div);
+            }
+        }
+    }
+</script>
+
+</head>
+
 
 <body>
+
 <div id="layout-content" style="margin-top:25px">
 
+
 <table>
-    <tbody>
-        <tr>
-            <td width="670">
-                <div id="toptitle">
-                    <h1>Zhang SHENGYU &nbsp; <img src="syz_chinesename.png" height="32px" style="margin-bottom:-5px" alt=''></h1>
-                </div>
-                <!-- <h3>Graduate Student</h3> -->
+	<tbody>
+		<tr>
+			<td width="75%">
+				<div id="toptitle">
+					<h1>Zhang SHENGYU &nbsp; <img src="images/syz_chinesename.png" height="32px" style="margin-bottom:-5px" alt=''><h1>
+				</div>
+
+                <h3 class="title">Tenure-track Assistant Professor</h3>
                 <p>
                     <FONT size=4 face="Times New Roman"><strong>ZJU100 Young Professor</strong>（百人计划研究员）</FONT><br>
                     School of Software Technology & Lab of Artificial Intelligence <br>
                     Zhejiang University <br>
                     Zhejiang, China. 310000.<br>
                     <br>
-                    Address: Room 205, Zetong Building, Yuquan Campus
+                    Address: Room 207, Zetong Building, Yuquan Campus
                     <br>
                     Email: sy_zhang &alpha;t zju d&omicron;t edu d&omicron;t cn
                 </p>
-            </td>
-            <td>
-                <img src="./syz_photo.jpeg" border="0" width="225">
-            </td>
-        </tr>
-    </tbody>
+			</td>
+			<td width="25%">
+				<img src="images/syz_photo.jpeg" width="100%"/>
+			</td>
+		<tr>
+	</tbody>
 </table>
 
-<h2>Biography</h2>
-<p>
-    I obtained my Ph.D in the <a href="http://www.cs.zju.edu.cn/">College of Computer Science and Technology</a> at <a href="https://www.zju.edu.cn/">Zhejiang University</a>, advised by Prof. <a href="https://person.zju.edu.cn/en/wufei">Fei Wu</a>. I was so lucky to work with Prof. <a href="https://person.zju.edu.cn/zhaozhou">Zhou Zhao</a> and Prof. <a href="https://kunkuang.github.io/">Kun Kuang</a> at Zhejiang University. From March 2021 to September 2022, I become a visiting research scholar of <a href="https://www.nextcenter.org/" </a>NExT++ Research Center</a>, National University of Singapore, advised by Prof. <a href="https://www.chuatatseng.com/">Tat-seng Chua</a>. I feel grateful to work with Prof. <a href="https://fulifeng.github.io/"> Fuli Feng</a> at <a href="http://en.ustc.edu.cn/">University of Science and Technology of China</a>.
-<br><br>
-As an AI researcher with a specialization in machine learning, my work revolves around the cutting-edge domain of <u><strong>device-cloud collaborative learning</strong></u>, multi-media analysis, and data mining. My research endeavors are driven by a deep interest in the development and deployment of machine learning models that operate collaboratively across both edge devices and cloud servers. Specifically, my research seeks to address the unique challenges associated with the seamless integration of heterogeneous models in these diverse computational environments. Through the design and evaluation of these models, I seek to improve the scalability, reliability, and real-time performance of machine learning systems in a wide range of applications.
-<!-- I am an AI researcher specializing in the field of machine learning, with a primary focus on edge-cloud collaborative learning, multi-media analysis, and data mining. My research work aims to address the challenges associated with the seamless collaboration of heterogeneous models in edge devices and cloud servers. Through the design and evaluation of these models, I seek to improve the scalability, reliability, and real-time performance of machine learning systems in a wide range of applications. -->
+<h2>Biography</h2> 
 
-<!-- A key component of my research is exploring novel algorithms and models for edge-cloud collaborative learning, which enables the seamless coordination between edge devices and cloud servers in distributed learning environments. Through the design and evaluation of these models, I seek to improve the scalability, reliability, and real-time performance of machine learning systems in a wide range of applications. -->
-<!-- I have over 20 publications appeared in several top-tier conferences such as KDD, SIGIR, WWW, and ACMMM, and journals including TPAMI and TKDE. My research interests include edge-cloud collaborative learning, multi-media analysis, and data. Research models have been deployed in recommender systems of Mobile Taobao, Huwei Music, and Tencent News. -->
-    
-</p>
+<div style="display: flex; margin-bottom: -10px">
+    <p>
+        I obtained my Ph.D in the <a href="http://www.cs.zju.edu.cn/">College of Computer Science and Technology</a> at <a href="https://www.zju.edu.cn/">Zhejiang University</a>, advised by Prof. <a href="https://person.zju.edu.cn/en/wufei">Fei Wu</a>. I was so lucky to work with Prof. <a href="https://person.zju.edu.cn/zhaozhou">Zhou Zhao</a> and Prof. <a href="https://kunkuang.github.io/">Kun Kuang</a> at Zhejiang University. From March 2021 to September 2022, I become a visiting research scholar of <a href="https://www.nextcenter.org/" </a>NExT++ Research Center</a>, National University of Singapore, advised by Prof. <a href="https://www.chuatatseng.com/">Tat-seng Chua</a>. I feel grateful to work with Prof. <a href="https://fulifeng.github.io/"> Fuli Feng</a> at <a href="http://en.ustc.edu.cn/">University of Science and Technology of China</a>.
+        <br><br>
+        As an AI researcher with a specialization in machine learning, my work revolves around the cutting-edge domain of <u><strong>device-cloud collaborative learning</strong></u>, multi-media analysis, and data mining. My research endeavors are driven by a deep interest in the development and deployment of machine learning models that operate collaboratively across both edge devices and cloud servers. Specifically, my research seeks to address the unique challenges associated with the seamless integration of heterogeneous models in these diverse computational environments. Through the design and evaluation of these models, I seek to improve the scalability, reliability, and real-time performance of machine learning systems in a wide range of applications.
+    </p>
+</div>
 
-<img style='width: 80%; object-fit: contain; margin: auto; display: block;' src="./images/Device-cloud Collaboration.jpg" alt="Device-cloud Collaboration (Shengyu Zhang)">
+<h2>News</h2>
 
-
-<h2>News<small></small></h2>
 <ul>
     <li>
-        Feb. 2024: One paper was accepted by <a href="https://iclr.cc/Conferences/2024">ICLR</a> about out-of-domain knowledge distillation without access to source domain.
-        <br>
+        <div class="marker">[2024-05] Paper accepted by KDD Research Track on device-cloud collaborative recommendation.</div>
     </li>
     <li>
-        Feb. 2024: One paper was accepted by <a href="https://www2024.thewebconf.org/">WWW</a> about on-device model uncertainty detection for intelligent cloud request.
-        <br>
+        <div class="marker">[2024-03] Paper accepted by TOIS on out-of-domain model transfer without access to target domain.</div>
     </li>
     <li>
-        Mar. 2024: One paper was accepted by <a href="https://dl.acm.org/journal/tois">TOIS</a> about out-of-domain model transfer without acess to target domain.
-        <br>
+        <div class="marker">[2024-02] Paper accepted by ICLR on out-of-domain knowledge distillation without access to source domain.</div>
     </li>
+    <li>
+        <div class="marker">[2024-02] Paper accepted by WWW on on-device model uncertainty detection for intelligent cloud request.</div>
+    </li>
+    
 
-    <li>
-        <details>
-            <summary>2023</summary>
+
+    <div class="news" style="display:none">
+        <li>
+            <div class="marker">[2023-07] Three papers accepted by CICAI, including a Best Paper Award on causality-inspired structure learning for recsys.</div>
+        </li>
+        <li>
+            <div class="marker">[2023-07] Two papers accepted by ACM MM.</div>
+        </li>
+        <li>
+            <div class="marker">[2023-07] One paper accepted by TOIS.</div>
+        </li>
+        <li>
+            <div class="marker">[2023-07] One paper accepted by TKDE on causal distillation of heterogeneous models.</div>
+        </li>
+        <li>
+            <div class="marker">[2023-05] Two papers accepted by ACL 2023.</div>
+        </li>
+        <li>
+            <div class="marker">[2023-03] One paper accepted by SIGIR 2023 on disentangled music representation learning.</div>
+        </li>
+        <li>
+            <div class="marker">[2023-03] Two papers accepted by CVPR 2023.</div>
+        </li>
+        <li>
+            <div class="marker">[2023-02] One paper accepted by TPAMI on causality-inspired disentangled representation learning for recsys.</div>
+        </li>
+        <li>
+            <div class="marker">[2023-01] One paper accepted by WWW 2023 on edge-cloud collaborative recommendation.</div>
+        </li>
         
-            <!-- <p> -->
-                <li>
-                    Jul. 2023: Three paper was accepted by <a href="https://cicai.caai.cn/">CICAI</a>, among which the work about causality-inspired structure learning for recsys has been granted the <strong>Best Paper Award</strong>.
-                </li>
-                <li>
-                    Jul. 2023: Two paper was accepted by <a href="https://www.acmmm2023.org/">ACM MM</a>.
-                </li>
-                <li>
-                    Jul. 2023: One paper was accepted by <a href="https://dl.acm.org/journal/tois">TOIS</a>.
-                </li>
-                <li>
-                    Jul. 2023: One paper was accepted by <a href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=69">TKDE</a> about causal distillation of heterogeneous models.
-                </li>
-                <li>
-                    May. 2023: Two papers was accepted by <a href="https://2023.aclweb.org/">ACL 2023</a>.
-                </li>
-                <li>
-                    Mar. 2023: One papers was accepted by <a href="https://sigir.org/sigir2023/">SIGIR 2023</a> on disentangled music representation learning.
-                </li>
-                <li>
-                    Mar. 2023: Two papers were accepted by <a href="https://cvpr2023.thecvf.com/">CVPR 2023</a>.
-                </li>
-                <li>
-                    Feb. 2023: One paper was accepted by <a href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=34">TPAMI</a> on causality-inspired disentangled representation learning for recsys.
-                </li>
-                <li>
-                    Jan. 2023: One paper was accepted by <a href="https://www2023.thewebconf.org/">WWW 2023</a> on edge-cloud collaborative recommendation.
-                </li>
-            <!-- </p> -->
-        </details>
-    </li>
-
-
-
-
-
-    <!--
-    <li>
-        Dec. 2021: One paper was accepted by <a href="https://aaai.org/Conferences/AAAI-22/">AAAI 2022</a>.
-    </li>
-    <li>
-        Oct. 2021: One paper was accepted by <a href="https://www.wsdm-conference.org/2022/">WSDM 2022</a>.
-    </li>
-    <li>
-        Jul. 2021: One paper was accepted by <a href="https://2021.acmmm.org/">ACM MM 2021</a> on multi-modal sequential recommendation.
-    </li>
-    <li>
-        Apr. 2021: One paper was accepted by <a href="https://sigir.org/sigir2021/">SIGIR 2021</a> on counterfacual sequential recommendation.
-    </li>
-    <li>
-        Jan. 2021: One paper was accepted by <a href="https://www2021.thewebconf.org/">WWW 2021</a> on multi-interest sequential recommendation.
-    </li>
-    <li>
-        Jul. 2020: Two papers were accepted by <a href="https://2020.acmmm.org/">MM-20</a> on causal vision-language pre-training.
-    </li>
-	<li>
-            May 2020: One paper was accepted by <a href="https://www.kdd.org/kdd2020">KDD 2020</a>.
-    </li>
-    -->
+    </div>
 </ul>
 
+<div class="show_button">
+    <a href="javascript:toggle_vis('news')" id="showText">[Show more]</a>
+</div>
+
+<h2>Research Summary</h2>
+
+<div style="display: flex;">
+    <div class="highlight_research_tab" onclick="toggle_research_vis('knowledge_transfer', this); toggle_goal_vis('knowledge_transfer_button', 'knowledge_transfer_goal_tabs', 'cross_domain_learning') ">Knowledge Transfer</div>
+    <div class="research_tab" onclick="toggle_research_vis('collaborative_learning', this);toggle_goal_vis('collaborative_learning_button', 'collaborative_learning_goal_tabs', 'collaboration_llm')">Collaborative Learning</div>
+    <div class="research_tab" onclick="toggle_research_vis('applied_research', this);toggle_goal_vis('applied_research_button', 'applied_research_goal_tabs', 'recsys')">Applied Research</div>
+</div>
+
+<div class="research_summary" id="knowledge_transfer" style="display:inline">
+    
+<div class="research_box">
+
+    <p style="margin-left: 20px;margin-right: 20px;margin-top: 10px;">
+        <b>Cloud to Device (C2D): </b> Diverse end devices exhibit distinct task functionalities and usage scenarios, rendering the migration and deployment of cloud models to the edge a complex endeavor. This process encounters significant challenges in achieving cross-scenario/domain/task/distribution generalization.
+
+    </p>
+
+</div>
+
+    
+
+
+    <img class="research_picture" src="images/KnowledgeTransfer.jpg"> 
+
+
+
+    <div class="research_progress">
+
+        <div class="progress_button" id="knowledge_transfer_button" style="display: inline;">
+            <a href="javascript:toggle_goal_vis('knowledge_transfer_button', 'knowledge_transfer_goal_tabs', 'cross_domain_learning')">[Show the research progress]</a>
+        </div>
+
+        <div class="goal_tabs" id="knowledge_transfer_goal_tabs" style="display: none;">
+            <div style="display: flex;">
+                <div class="goal_tab" id="cross_domain_learning_tab" onclick="toggle_goal_progress_vis(this)">Cross-domain/OOD Learning</div>
+                <div class="goal_tab" id="compression_tab" onclick="toggle_goal_progress_vis(this)">Compression</div>
+                <div class="goal_tab" id="pretraining_tab" onclick="toggle_goal_progress_vis(this)">Pretraining</div>
+                <div class="goal_tab" id="model_aggregation_tab" onclick="toggle_goal_progress_vis(this)">Model Aggregation</div>
+            </div>
+
+            <div class="goal_progress" id="cross_domain_learning">
+            </div>
+
+            <div class="goal_progress" id="compression">
+            </div>
+
+            <div class="goal_progress" id="pretraining">
+            </div>
+
+            <div class="goal_progress" id="model_aggregation">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="research_summary" id="collaborative_learning" style="display:none">
+
+    <div class="research_box">
+
+        <p style="margin-left: 20px;margin-right: 20px;margin-top: 10px;">
+            <b>Cloud for Device (C4D): </b> collaborative inference challenges requires managing discrepancies in model scales, architectures, and optimization goals between cloud and edge computing. The cloud's role is not to execute tasks directly, but to enhance edge devices' performance in executing predefined functions through strategic support.
+    
+        </p>
+    
+    </div>
+
+    <img class="research_picture" src="images/CollaborativeLearning.jpg"> 
+
+    <div class="research_progress">
+        <div class="progress_button" id="collaborative_learning_button" style="display: none;">
+            <a href="javascript:toggle_goal_vis('collaborative_learning_button', 'collaborative_learning_goal_tabs', 'collaboration_llm')">[Show the research progress]</a>
+        </div>
+
+        <div class="goal_tabs" id="collaborative_learning_goal_tabs" style="display: none;">
+            <div style="display: flex;">
+                <div class="goal_tab" id="collaboration_llm_tab" onclick="toggle_goal_progress_vis(this)">Collaboration of Foundation models and the others</div>
+                <div class="goal_tab" id="collaboration_hetergeneous_tab" onclick="toggle_goal_progress_vis(this)">Collaboration of Heterogeneous Models </div>
+                <!-- <div class="goal_tab" id="scene_generation_tab" onclick="toggle_goal_progress_vis(this)">Scene Generation</div> -->
+            </div>
+
+            <div class="goal_progress" id="collaboration_llm">
+            </div>
+
+            <div class="goal_progress" id="collaboration_hetergeneous">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="research_summary" id="applied_research" style="display:none">
+    <img class="research_picture" src="images/AppliedResearch.jpg"> 
+
+    <div class="research_progress">
+        <div class="progress_button" id="applied_research_button" style="display: none;">
+            <a href="javascript:toggle_goal_vis('applied_research_button', 'applied_research_goal_tabs', 'recsys')">[Show the research progress]</a>
+        </div>
+
+        <div class="goal_tabs" id="applied_research_goal_tabs" style="display: none;">
+            <div style="display: flex;">
+                <div class="goal_tab" id="recsys_tab" onclick="toggle_goal_progress_vis(this)">On-device User Behavior Modeling (RecSys)</div>
+                <div class="goal_tab" id="mm_computing_tab" onclick="toggle_goal_progress_vis(this)">Multi-media Computing</div>
+            </div>
+
+            <div class="goal_progress" id="recsys">
+            </div>
+
+            <div class="goal_progress" id="mm_computing">
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<!--  ###############################  -->
 
 <h2>Publications<small></small></h2>
 <sup>*</sup> denotes co-first authors, <sup><font size="+1"><font size="+1">&#9993;</font></font></sup> denotes the corresponding author, <sup>#</sup> denotes (co-)supervised students <br><br>
 
-
 <font size="3"><b>Highlights</b></font>
-<ul>
-    <li>
-        <a href="https://arxiv.org/abs/2402.12408">ModelGPT: Unleashing LLM’s Capabilities for Tailored Model Generation </a> &nbsp;   |  &nbsp;   <a href="https://github.com/IshiKura-a/ModelGPT">[GitHub]</a> &nbsp;   |  &nbsp;   <a href="https://zhuanlan.zhihu.com/p/691248870">[知乎]</a><br>
-        <font color="red">User description + A few data + ModelGPT&nbsp;&nbsp;   =(Inference)&nbsp;&nbsp;   Off-the-shelf AI Model</font> <br>
-        Zihao Tang, Zheqi Lv, Shengyu Zhang, Fei Wu, Kun Kuang<br>
-        Arxiv, 2024<br>
-    </li>
-    <li>
-        <a href="https://arxiv.org/abs/2308.10792">Instruction tuning for large language models: A survey </a>&nbsp;   |  &nbsp;   <a href="https://github.com/xiaoya-li/Instruction-Tuning-Survey">[GitHub]</a>
-        <br>
-        Shengyu Zhang, Linfeng Dong, Xiaoya Li, Sen Zhang, Xiaofei Sun, Shuhe Wang, Jiwei Li, Runyi Hu, Tianwei Zhang, Fei Wu, Guoyin Wang<br>
+<div class="publication_container compression collaboration_llm">
+    <div class="publication_title">
+        ModelGPT: Unleashing LLM’s Capabilities for Tailored Model Generation</br>
+        Zihao Tang, Zheqi Lv, <strong><u>Shengyu Zhang</u></strong>, Fei Wu, Kun Kuang</br>
+        Arxiv, 2024</br>
+        [<a href="https://arxiv.org/abs/2402.12408">Paper</a>]
+        [<a href="https://zhuanlan.zhihu.com/p/691248870">知乎</a>]
+    </div>
+    <div class="publication_bio">
+        <b><i>Main Idea:</i></b> <br>
+        User description + A few data + ModelGPT&nbsp;&nbsp;   
+        <br>=(Inference)&nbsp;&nbsp;   Off-the-shelf AI Model
+    </div>
+</div>
+
+<div class="publication_container collaboration_llm pretraining">
+    <div class="publication_title">
+        Instruction tuning for large language models: A survey<br>
+        <strong><u>Shengyu Zhang</u></strong>, Linfeng Dong, Xiaoya Li, Sen Zhang, Xiaofei Sun, Shuhe Wang, Jiwei Li, Runyi Hu, Tianwei Zhang, Guoyin Wang, Fei Wu<br>
         Arxiv, 2023<br>
-    </li>
-</ul>
+        [<a href="https://arxiv.org/abs/2308.10792">Paper</a>]
+        [<a href="https://github.com/xiaoya-li/Instruction-Tuning-Survey">GitHub</a>]
+    </div>
+    <div class="publication_bio">
+        <b><i>Main Idea:</i></b> <br>
+        An early survey on LLM instruction tuning
+    </div>
+</div>
 
 
 
 <font size="3"><b>2024</b></font>
-<ul>
-    <li>
-        <a href="https://dl.acm.org/doi/10.1145/3643807">Transferring Causal Mechanism over Meta-representations for Target-unknown Cross-domain Recommendation </a><br>
+
+<div class="publication_container compression cross_domain_learning recsys">
+    <div class="publication_title">
+        DIET: Customized Slimming for Incompatible Networks in Sequential Recommendation<br>
+        <!-- <a href="TODO">DIET: Customized Slimming for Incompatible Networks in Sequential Recommendation</a><br> -->
+        Kairui Fu, <strong><u>Shengyu Zhang</u></strong>✉, Zheqi Lv, Jingyuan Chen, Jiwei Li<br>
+        KDD 2024 (Research Track, to appear)<br>
+    </div>
+    <div class="publication_bio">
+        <b><i>Main Idea:</i></b> <br>
+        Random Networks - Distribution-incompatible Params.<br> = Compact Device Model customized in Real time
+    </div>
+</div>
+
+
+
+
+<div class="publication_container cross_domain_learning recsys">
+    <div class="publication_title">
+        <a href="https://dl.acm.org/doi/10.1145/3643807">Transferring Causal Mechanism over Meta-representations for Target-unknown Cross-domain Recommendation</a><br>
         <strong><u>Shengyu Zhang</u></strong>, Qiaowei Miao, Ping Nie, Mengze Li, Zhengyu Chen, Fuli Feng, Kun Kuang, Fei Wu<br>
-        ACM Transactions on Information Systems (<b>TOIS</b>), 2024<br>
-    </li>
-    <li>
-        <a href="https://arxiv.org/html/2403.07030v2">AuG-KD: Anchor-Based Mixup Generation for Out-of-Domain Knowledge Distillation </a>&nbsp;   |  &nbsp;   <a href="https://github.com/IshiKura-a/AuG-KD">[GitHub]</a><br>
-        Zihao Tang, Zheqi Lv, <strong><u>Shengyu Zhang</u></strong><sup><font size="+1">&#9993;</font></sup>, Yifan Zhou, Xinyu Duan, Fei Wu, Kun Kuang<br>
-        The International Conference on Learning Representations (<b>ICLR</b>), 2024<br>
-    </li>
-    <li>
-        <a href="https://www.youtube.com/watch?v=NV0LhypioQc">Intelligent Model Update Strategy for Sequential Recommendation</a><br>
-        Zheqi Lv, Wenqiao Zhang, Zhengyu Chen, <strong><u>Shengyu Zhang</u></strong><sup><font size="+1">&#9993;</font></sup>, Kun Kuang<br>
-        The Web Conference (<b>WWW</b>), 2024<br>
-    </li>
-    
+        ACM Transactions on Information Systems (TOIS), 2024<br>
+    </div>
+    <div class="publication_bio">
+    </div>
+</div>
 
-    <li>
-        <a href="http://shengyuzhang.github.io/">MPOD123: One Image to 3D Content Generation Using Mask-enhanced Progressive Outline-to-Detail Optimization</a>&nbsp;   |  &nbsp;   <a href="https://mpod-123.github.io/">[Demo]</a><br>
-        Jimin Xu, Tianbao Wang, Tao Jin, <strong><u>Shengyu Zhang</u></strong><sup><font size="+1">&#9993;</font></sup>, Dongjie Fu, Zhe Wang, Jiangjing Lyu, Chengfei Lv, Chaoyue Niu, Zhou Yu, Zhou Zhao, Fei Wu<br>
-        IEEE/CVF Conference on Computer Vision and Pattern Recognition (<b>CVPR</b>), 2024<br>
-    </li>
-    <li>
-        <a href="https://ojs.aaai.org/index.php/AAAI/article/view/28711">CoreRec: A Counterfactual Correlation Inference for Next Set Recommendation </a><br>
+
+
+<div class="publication_container compression cross_domain_learning">
+    <div class="publication_title">
+        AuG-KD: Anchor-Based Mixup Generation for Out-of-Domain Knowledge Distillation<br>
+        Zihao Tang, Zheqi Lv, <strong><u>Shengyu Zhang</u></strong>✉, Yifan Zhou, Xinyu Duan, Fei Wu, Kun Kuang<br>
+        The International Conference on Learning Representations (ICLR), 2024<br>
+        [<a href="https://arxiv.org/html/2403.07030v2">Paper</a>]
+        [<a href="https://github.com/IshiKura-a/AuG-KD">GitHub</a>]
+    </div>
+    <div class="publication_bio">
+    </div>
+</div>
+
+<div class="publication_container collaboration_hetergeneous recsys">
+    <div class="publication_title">
+        Intelligent Model Update Strategy for Sequential Recommendation<br>
+        Zheqi Lv, Wenqiao Zhang, Zhengyu Chen, <strong><u>Shengyu Zhang</u></strong>✉, Kun Kuang<br>
+        The Web Conference (WWW), 2024<br>
+        [<a href="https://dl.acm.org/doi/10.1145/3589334.3645316">Paper</a>]
+        [<a href="https://www.youtube.com/watch?v=NV0LhypioQc">Presentation</a>]
+    </div>
+    <div class="publication_bio">
+    </div>
+</div>
+
+<div class="publication_container collaboration_llm mm_computing">
+    <div class="publication_title">
+        MPOD123: One Image to 3D Content Generation Using Mask-enhanced Progressive Outline-to-Detail Optimization<br>
+        Jimin Xu, Tianbao Wang, Tao Jin, <strong><u>Shengyu Zhang</u></strong>✉, Dongjie Fu, Zhe Wang, Jiangjing Lyu, Chengfei Lv, Chaoyue Niu, Zhou Yu, Zhou Zhao, Fei Wu<br>
+        IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2024<br>
+        [<a href="http://shengyuzhang.github.io/">Paper</a>]
+        [<a href="https://mpod-123.github.io/">Demo</a>]
+    </div>
+    <div class="publication_bio">
+    </div>
+</div>
+
+<div class="publication_container recsys">
+    <div class="publication_title">
+        <a href="https://ojs.aaai.org/index.php/AAAI/article/view/28711">CoreRec: A Counterfactual Correlation Inference for Next Set Recommendation</a><br>
         Kexin Li, Chengjiang Long, <strong><u>Shengyu Zhang</u></strong>, Xudong Tang, Zhichao Zhai, Kun Kuang, Jun Xiao<br>
-        AAAI Conference on Artificial Intelligence (<b>AAAI</b>), 2024<br>
-    </li>
-</ul>
-
-
+        AAAI Conference on Artificial Intelligence (AAAI), 2024<br>
+    </div>
+    <div class="publication_bio">
+    </div>
+</div>
 
 
 <font size="3"><b>2023</b></font>
-<ul>
-    <li>
+
+<div class="publication_container model_aggregation recsys">
+    <div class="publication_title">
         <a href="https://ieeexplore.ieee.org/document/10168248">Causal Distillation for Alleviating Performance Heterogeneity in Recommender Systems</a><br>
-        <strong><u>Shengyu Zhang</u></strong>, Ziqi Jiang, Jiangchao Yao, Fuli Feng, Kun Kuang, Zhou Zhao, Shuo Li, Hongxia Yang, Tat-seng Chua, and Fei Wu<br>
-        IEEE Transactions on Knowledge and Data Engineering (<b>TKDE</b>), 2023<br>
-    </li>
-    <li>
+            <strong><u>Shengyu Zhang</u></strong>, Ziqi Jiang, Jiangchao Yao, Fuli Feng, Kun Kuang, Zhou Zhao, Shuo Li, Hongxia Yang, Tat-seng Chua, Fei Wu<br>
+        IEEE Transactions on Knowledge and Data Engineering (TKDE), 2023<br>
+    </div>
+    <div class="publication_bio">
+    </div>
+</div>
+
+<div class="publication_container pretraining recsys">
+    <div class="publication_title">
         <a href="https://dl.acm.org/doi/10.1145/3611385">SLED: Structure Learning based Denoising for Recommendation</a><br>
         <strong><u>Shengyu Zhang</u></strong>, Tan Jiang, Kun Kuang, Fuli Feng, Jin Yu, Jianxin Ma, Zhou Zhao, Jianke Zhu, Hongxia Yang, Tat-sen Chua, Fei Wu<br>
-        ACM Transactions on Information Systems (<b>TOIS</b>), 2023<br>
-    </li>
-    <li>
+        ACM Transactions on Information Systems (TOIS), 2023<br>
+    </div>
+    <div class="publication_bio">
+    </div>
+</div>
+
+<div class="publication_container mm_computing">
+    <div class="publication_title">
         <a href="https://dl.acm.org/doi/10.1145/3581783.3613804">Reconnecting the Broken Civilization: Patchwork Integration of Fragments from Ancient Manuscripts</a><br>
-        Yuqing Zhang<sup>#</sup>, Zhou Fang, Xinyu Yang, <strong><u>Shengyu Zhang</u></strong><sup><font size="+1">&#9993;</font></sup>, Baoyi He, Huaiyong Dou, Junchi Yan, Yongquan Zhang, Fei Wu<br>
-        ACM International Conference on Multimedia (<b>ACM MM</b>), 2023<br>
-    </li>
-    <li>
-        <a href="https://dl.acm.org/doi/abs/10.1145/3581783.3612314">Unsupervised Domain Adaptation for Video Object Grounding with Cascaded Debiasing Learning</a>
-        <br>
-        Mengze Li, Haoyu Zhang, Juncheng Li, Zhou Zhao, Wenqiao Zhang, <strong><u>Shengyu Zhang</u></strong><sup><font size="+1">&#9993;</font></sup>, Shiliang Pu, Yueting Zhuang, Fei Wu
-        <br>
-        ACM International Conference on Multimedia (<b>ACM MM</b>), 2023
-        <br>
-    </li>
-    <li>
+        Yuqing Zhang, Zhou Fang, Xinyu Yang, <strong><u>Shengyu Zhang</u></strong>✉, Baoyi He, Huaiyong Dou, Junchi Yan, Yongquan Zhang, Fei Wu<br>
+        ACM International Conference on Multimedia (ACM MM), 2023<br>
+    </div>
+    <div class="publication_bio">
+    </div>
+</div>
+
+<div class="publication_container cross_domain_learning mm_computing">
+    <div class="publication_title">
+        <a href="https://dl.acm.org/doi/abs/10.1145/3581783.3612314">Unsupervised Domain Adaptation for Video Object Grounding with Cascaded Debiasing Learning</a><br>
+        Mengze Li, Haoyu Zhang, Juncheng Li, Zhou Zhao, Wenqiao Zhang, <strong><u>Shengyu Zhang</u></strong>✉, Shiliang Pu, Yueting Zhuang, Fei Wu<br>
+        ACM International Conference on Multimedia (ACM MM), 2023<br>
+    </div>
+    <div class="publication_bio">
+    </div>
+</div>
+
+<div class="publication_container recsys">
+    <div class="publication_title">
         <a href="https://arxiv.org/abs/2307.09775">DisCover: Disentangled Music Representation Learning for Cover Song Identification</a><br>
-        Jiahao Xun<sup>#</sup>,<strong><u>Shengyu Zhang</u></strong><sup><font size="+1">&#9993;</font></sup>, Yanting Yang, Jieming Zhu, Liqun Deng, Zhou Zhao, Zhenhua Dong, Ruiqi Li, Lichao Zhang and Fei Wu<br>
-        International ACM SIGIR Conference on Research and Development in Information Retrieval (<b>SIGIR</b>), 2023<br>
-    </li>
-    <li>
+        Jiahao Xun, <strong><u>Shengyu Zhang</u></strong>✉, Yanting Yang, Jieming Zhu, Liqun Deng, Zhou Zhao, Zhenhua Dong, Ruiqi Li, Lichao Zhang, Fei Wu<br>
+        International ACM SIGIR Conference on Research and Development in Information Retrieval (SIGIR), 2023<br>
+    </div>
+    <div class="publication_bio">
+    </div>
+</div>
+
+<div class="publication_container mm_computing">
+    <div class="publication_title">
         <a href="https://openaccess.thecvf.com/content/CVPR2023/papers/Li_WINNER_Weakly-Supervised_hIerarchical_decompositioN_and_aligNment_for_Spatio-tEmporal_Video_gRounding_CVPR_2023_paper.pdf">WINNER: Weakly-supervised hIerarchical decompositioN and aligNment for spatio-tEmporal video gRounding</a><br>
-        Mengze Li<sup>#</sup>, Han Wang, Wenqiao Zhang, Jiaxu Miao, Wei Ji, Zhou Zhao, <strong><u>Shengyu Zhang</u></strong><sup><font size="+1">&#9993;</font></sup>, Fei Wu<br>
-        IEEE/CVF Conference on Computer Vision and Pattern Recognition (<b>CVPR</b>), 2023<br>
-    </li>
-    <li>
+            Mengze Li, Han Wang, Wenqiao Zhang, Jiaxu Miao, Wei Ji, Zhou Zhao, <strong><u>Shengyu Zhang</u></strong>✉, Fei Wu<br>
+        IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2023<br>
+    </div>
+    <div class="publication_bio">
+    </div>
+</div>
+
+<div class="publication_container mm_computing">
+    <div class="publication_title">
         <a href="https://openaccess.thecvf.com/content/CVPR2023/papers/Ji_Are_Binary_Annotations_Sufficient_Video_Moment_Retrieval_via_Hierarchical_Uncertainty-Based_CVPR_2023_paper.pdf">Are Binary Annotations Sufficient? Video Moment Retrieval via Hierarchical Uncertainty-based Active Learning</a><br>
-        Wei Ji, Renjie Liang, Zhedong Zheng, Wenqiao Zhang, <strong><u>Shengyu Zhang</u></strong>, Juncheng Li, Mengze Li, Tat-Seng Chua,<br>
-        IEEE/CVF Conference on Computer Vision and Pattern Recognition (<b>CVPR</b>), 2023<br>
-    </li>
-    <li>
+        Wei Ji, Renjie Liang, Zhedong Zheng, Wenqiao Zhang, <strong><u>Shengyu Zhang</u></strong>, Juncheng Li, Mengze Li, Tat-Seng Chua<br>
+        IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2023<br>
+    </div>
+    <div class="publication_bio">
+    </div>
+</div>
+
+<div class="publication_container cross_domain_learning collaboration_hetergeneous recsys">
+    <div class="publication_title">
         <a href="https://ieeexplore.ieee.org/document/10053625/">Personalized Latent Structure Learning for Recommendation</a><br>
-        <strong><u>Shengyu Zhang</u></strong>, Fuli Feng, Kun Kuang, Wenqiao Zhang, Zhou Zhao, Hongxia Yang, Tat-Seng Chua, Fei Wu,<br>
-        IEEE Transactions on Pattern Analysis and Machine Intelligence (<b>TPAMI</b>), 2023<br>
-    </li>
-    <li>
+        <strong><u>Shengyu Zhang</u></strong>, Fuli Feng, Kun Kuang, Wenqiao Zhang, Zhou Zhao, Hongxia Yang, Tat-Seng Chua, Fei Wu<br>
+        IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI), 2023<br>
+    </div>
+    <div class="publication_bio">
+    </div>
+</div>
+
+<div class="publication_container cross_domain_learning mm_computing">
+    <div class="publication_title">
         <a href="https://ojs.aaai.org/index.php/AAAI/article/view/26787">Video-Audio Domain Generalization via Confounder Disentanglement</a><br>
         <strong><u>Shengyu Zhang</u></strong>, Xusheng Feng, Wenyan Fan, Wenjing Fang, Fuli Feng, Wei Ji, Shuo Li, Li Wang, Shanshan Zhao, Zhou Zhao, Tat-Seng Chua, Fei Wu<br>
-        AAAI Conference on Artificial Intelligence (<b>AAAI</b>), 2023<br>
-    </li>
-    <li>
-        <a href="https://link.springer.com/chapter/10.1007/978-981-99-8850-1_34">End-to-End Optimization of Quantization-based Structure
-            Learning and Interventional Next-item Recommendation</a><br>
-        Kairui Fu, Qiaowei Miao, <strong><u>Shengyu Zhang</u></strong><sup><font size="+1"><font size="+1">&#9993;</font></font></sup>, Kun Kuang, Fei wu
-        <br>
-        The 3rd CAAI International Conference on Artificial Intelligence (<b>CICAI</b>), 2023, <strong>BEST PAPER AWARD</strong>
-        <br>
-    </li>
-    <li>
+        AAAI Conference on Artificial Intelligence (AAAI), 2023<br>
+    </div>
+    <div class="publication_bio">
+    </div>
+</div>
+
+<div class="publication_container cross_domain_learning recsys">
+    <div class="publication_title">
+        <a href="https://link.springer.com/chapter/10.1007/978-981-99-8850-1_34">End-to-End Optimization of Quantization-based Structure Learning and Interventional Next-item Recommendation</a><br>
+            Kairui Fu#, Qiaowei Miao, <strong><u>Shengyu Zhang</u></strong>✉, Kun Kuang, Fei Wu<br>
+        The 3rd CAAI International Conference on Artificial Intelligence (CICAI), 2023, BEST PAPER AWARD<br>
+    </div>
+    <div class="publication_bio">
+    </div>
+</div>
+
+<div class="publication_container recsys">
+    <div class="publication_title">
         <a href="https://arxiv.org/abs/2110.03902">Multi-trends Enhanced Dynamic Micro-video Recommendation</a><br>
-        Yujie Lu, Yingxuan Huang, <strong><u>Shengyu Zhang</u></strong><sup><font size="+1"><font size="+1">&#9993;</font></font></sup>, Wei Han, Hui Chen, Zhou Zhao, Fei Wu
-        <br>
-        The 3rd CAAI International Conference on Artificial Intelligence (<b>CICAI</b>), 2023
-        <br>
-    </li>
-    <li>
+        Yujie Lu, Yingxuan Huang, <strong><u>Shengyu Zhang</u></strong>✉, Wei Han, Hui Chen, Zhou Zhao, Fei Wu<br>
+        The 3rd CAAI International Conference on Artificial Intelligence (CICAI), 2023<br>
+    </div>
+    <div class="publication_bio">
+    </div>
+</div>
+
+<div class="publication_container cross_domain_learning collaboration_hetergeneous recsys">
+    <div class="publication_title">
         <a href="https://arxiv.org/abs/2209.05227">DUET: A Tuning-Free Device-Cloud Collaborative Parameters Generation Framework for Efficient Device Model Generalization</a><br>
-        Zheqi Lv, Wenqiao Zhang, <strong><u>Shengyu Zhang</u></strong>, Kun Kuang, Feng Wang, Yongwei Wang, Zhengyu Chen, Tao Shen, Hongxia Yang, Beng Chin Ooi and Fei Wu<br>
-        The Web Conference (<b>WWW</b>), 2023<br>
-    </li>
-    <li>
+        Zheqi Lv, Wenqiao Zhang, <strong><u>Shengyu Zhang</u></strong>, Kun Kuang, Feng Wang, Yongwei Wang, Zhengyu Chen, Tao Shen, Hongxia Yang, Beng Chin Ooi, Fei Wu<br>
+        The Web Conference (WWW), 2023<br>
+    </div>
+    <div class="publication_bio">
+    </div>
+</div>
+
+<div class="publication_container mm_computing">
+    <div class="publication_title">
         <a href="https://aclanthology.org/2023.acl-long.611/">Weakly-Supervised Spoken Video Grounding via Semantic Interaction Learning</a><br>
-        Ye Wang, Wang Lin, <strong><u>Shengyu Zhang</u></strong>, Tao Jin, Linjun Li, Xize Cheng and Zhou Zhao <br>
-        <!-- Mengze Li<sup>#</sup>, Han Wang, Wenqiao Zhang, Jiaxu Miao, Wei Ji, Zhou Zhao, <strong><u>Shengyu Zhang</u></strong><sup><font size="+1">&#9993;</font></sup>, Fei Wu<br> -->
-        The Annual Meeting of the Association for Computational Linguistics (<b>ACL</b>), 2023<br>
-    </li>
-    <li>
+        Ye Wang, Wang Lin, <strong><u>Shengyu Zhang</u></strong>, Tao Jin, Linjun Li, Xize Cheng, Zhou Zhao<br>
+        The Annual Meeting of the Association for Computational Linguistics (ACL), 2023<br>
+    </div>
+    <div class="publication_bio">
+    </div>
+</div>
+
+<div class="publication_container mm_computing">
+    <div class="publication_title">
         <a href="https://aclanthology.org/2023.acl-long.254.pdf">Multi-modal Action Chain Abductive Reasoning</a><br>
-        Mengze Li<sup>#</sup>, Tianbao Wang, Jiahe Xu, Kairong Han, <strong><u>Shengyu Zhang</u></strong>, Zhou Zhao, Jiaxu Miao, wenqiao zhang, Shiliang Pu and Fei Wu <br>
-        <!-- Mengze Li<sup>#</sup>, Han Wang, Wenqiao Zhang, Jiaxu Miao, Wei Ji, Zhou Zhao, <strong><u>Shengyu Zhang</u></strong><sup><font size="+1">&#9993;</font></sup>, Fei Wu<br> -->
-        The Annual Meeting of the Association for Computational Linguistics (<b>ACL</b>), 2023<br>
-    </li>
-    <li>
-        <a href="https://arxiv.org/abs/2208.09130">Personalizing Intervened Network for Long-tailed Sequential User Behavior Modeling</a>
-        <br>
-        Zheqi Lv<sup>*</sup>, Feng Wang<sup>*</sup>, <strong><u>Shengyu Zhang</u></strong><sup>*</sup>, Kun Kuang, Hongxia Yang, Fei Wu
-        <br>
-        The 3rd CAAI International Conference on Artificial Intelligence (<b>CICAI</b>), 2023
-        <br>
-    </li>
-</ul>
+        Mengze Li, Tianbao Wang, Jiahe Xu, Kairong Han, <strong><u>Shengyu Zhang</u></strong>, Zhou Zhao, Jiaxu Miao, Wenqiao Zhang, Shiliang Pu, Fei Wu<br>
+        The Annual Meeting of the Association for Computational Linguistics (ACL), 2023<br>
+    </div>
+    <div class="publication_bio">
+    </div>
+</div>
+
+<div class="publication_container recsys">
+    <div class="publication_title">
+        <a href="https://arxiv.org/abs/2208.09130">Personalizing Intervened Network for Long-tailed Sequential User Behavior Modeling</a><br>
+        Zheqi Lv*, Feng Wang*, <strong><u>Shengyu Zhang</u></strong>*, Kun Kuang, Hongxia Yang, Fei Wu<br>
+        The 3rd CAAI International Conference on Artificial Intelligence (CICAI), 2023<br>
+    </div>
+    <div class="publication_bio">
+    </div>
+</div>
 
 
 <font size="3"><b>2022</b></font>
-<ul>
-    <li>
-        <a href="https://arxiv.org/abs/2110.11570">MIC:Model-agnostic Integrated Cross-channel Recommender</a><br>
-        Ping Nie, Yujie Lu, <strong><u>Shengyu Zhang</u></strong>, Ming Zhao, Ruobing Xie, William Yang Wang and Yi Ren<br>
-        ACM International Conference on Information and Knowledge Management (<b>CIKM</b>), 2022<br>
-    </li>
-    <li>
+
+
+<div class="publication_container recsys">
+    <div class="publication_title">
+        <a href="https://arxiv.org/abs/2110.11570">MIC: Model-agnostic Integrated Cross-channel Recommender</a><br>
+        Ping Nie, Yujie Lu, <strong><u>Shengyu Zhang</u></strong>, Ming Zhao, Ruobing Xie, William Yang Wang, Yi Ren<br>
+        ACM International Conference on Information and Knowledge Management (CIKM), 2022<br>
+    </div>
+    <div class="publication_bio">
+    </div>
+</div>
+
+<div class="publication_container mm_computing">
+    <div class="publication_title">
         <a href="https://dl.acm.org/doi/abs/10.1145/3503161.3548213">Weakly-supervised Disentanglement Network for Video Fingerspelling Detection</a><br>
-        Ziqi Jiang<sup>#</sup>, <strong><u>Shengyu Zhang</u></strong><sup><font size="+1">&#9993;</font></sup>, Siyuan Yao, Wenqiao Zhang, Sihan Zhang, Juncheng Li, Zhou Zhao, Fei Wu<br>
-        ACM International Conference on Multimedia (<b>MM</b>) , 2022<br>
-    </li>
-    <li>
-        <a href="https://arxiv.org/abs/2208.05818"><font size="-0">HERO: Hierarchical Spatio-temporal reasoning with Contrastive Action Correspondence for Video Object Grounding</font></a><br>
-        Mengze Li<sup>#</sup>, Tianbao Wang, Haoyu Zhang, <strong><u>Shengyu Zhang</u></strong>, Zhou Zhao, Wenqiao Zhang, Jiaxu Miao, Shiliang Pu, Fei Wu<br>
-        ACM International Conference on Multimedia (<b>MM</b>) , 2022<br>
-    </li>
-    <li>
+        Ziqi Jiang#, <strong><u>Shengyu Zhang</u></strong>✉, Siyuan Yao, Wenqiao Zhang, Sihan Zhang, Juncheng Li, Zhou Zhao, Fei Wu<br>
+        ACM International Conference on Multimedia (MM), 2022<br>
+    </div>
+    <div class="publication_bio">
+    </div>
+</div>
+
+<div class="publication_container mm_computing">
+    <div class="publication_title">
+        <a href="https://arxiv.org/abs/2208.05818">HERO: Hierarchical Spatio-temporal reasoning with Contrastive Action Correspondence for Video Object Grounding</a><br>
+        Mengze Li#, Tianbao Wang, Haoyu Zhang, <strong><u>Shengyu Zhang</u></strong>, Zhou Zhao, Wenqiao Zhang, Jiaxu Miao, Shiliang Pu, Fei Wu<br>
+        ACM International Conference on Multimedia (MM), 2022<br>
+    </div>
+    <div class="publication_bio">
+    </div>
+</div>
+
+<div class="publication_container collaboration_hetergeneous mm_computing">
+    <div class="publication_title">
         <a href="https://arxiv.org/abs/2208.01954">Dilated Context Integrated Network with Cross-Modal Consensus for Temporal Emotion Localization in Videos</a><br>
         Juncheng Li, Junlin Xie, Linchao Zhu, Long Qian, Siliang Tang, Wenqiao Zhang, Haochen Shi, <strong><u>Shengyu Zhang</u></strong>, Longhui Wei, Qi Tian, Yueting Zhuang<br>
-        ACM International Conference on Multimedia (<b>MM</b>) , 2022<br>
-    </li>
+        ACM International Conference on Multimedia (MM), 2022<br>
+    </div>
+    <div class="publication_bio">
+    </div>
+</div>
 
-    <li>
-        <a href="https://arxiv.org/abs/2111.06061"> Edge-Cloud Polarization and Collaboration: A Comprehensive Survey</a><br>
+<div class="publication_container recsys collaboration_hetergeneous model_aggregation mm_computing">
+    <div class="publication_title">
+        <a href="https://arxiv.org/abs/2111.06061">Edge-Cloud Polarization and Collaboration: A Comprehensive Survey</a><br>
         Jiangchao Yao, <strong><u>Shengyu Zhang</u></strong>, Yang Yao, Feng Wang, Jianxin Ma, Jianwei Zhang, Yunfei Chu, Luo ji, Kunyang Jia, Tao Shen, Anpeng Wu, Fengda Zhang, Ziqi Tan, Kun Kuang, Chao Wu, Fei Wu<br>
-        IEEE Transactions on Knowledge and Data Engineering (<b>TKDE</b>) , 2022.<br>
-    </li>
+        IEEE Transactions on Knowledge and Data Engineering (TKDE), 2022<br>
+    </div>
+    <div class="publication_bio">
+    </div>
+</div>
 
-    <li>
+<div class="publication_container cross_domain_learning collaboration_hetergeneous recsys">
+    <div class="publication_title">
         <a href="https://arxiv.org/abs/2206.12296">Intelligent Request Strategy Design in Recommender System</a><br>
-        Xufeng Qian, Yue Xu, Fuyu Lv, <strong><u>Shengyu Zhang</u></strong><sup><font size="+1">&#9993;</font></sup>, Ziwen Jiang, Qingwen Liu, Xiaoyi Zeng, Tat-Seng Chua, Fei Wu<br>
-        The 28th ACM SIGKDD Conference on Knowledge Discovery and Data Mining (<b>KDD</b>) , 2022.<br>
-    </li>
+        Xufeng Qian, Yue Xu, Fuyu Lv, <strong><u>Shengyu Zhang</u></strong>✉, Ziwen Jiang, Qingwen Liu, Xiaoyi Zeng, Tat-Seng Chua, Fei Wu<br>
+        The 28th ACM SIGKDD Conference on Knowledge Discovery and Data Mining (KDD), 2022<br>
+    </div>
+    <div class="publication_bio">
+    </div>
+</div>
 
-    <li>
-        <a href="https://arxiv.org/abs/2203.02533">BoostMIS: Boosting Medical Image Semi-supervised Learning with Adaptive Pseudo Labeling and Informative Active Annotation</a> | <a href="https://github.com/wannature/BoostMIS">[GitHub]</a><br>
+<div class="publication_container mm_computing">
+    <div class="publication_title">
+        BoostMIS: Boosting Medical Image Semi-supervised Learning with Adaptive Pseudo Labeling and Informative Active Annotation<br>
         Wenqiao Zhang, Lei Zhu, James Hallinan, <strong><u>Shengyu Zhang</u></strong>, Andrew Makmur, Qingpeng Cai, Beng Chin Ooi<br>
-        IEEE/CVF International Conference on Computer Vision and Pattern Recognition (<b>CVPR</b>) , 2022.<br>
-    </li>
+        IEEE/CVF International Conference on Computer Vision and Pattern Recognition (CVPR), 2022<br>
+        [<a href="https://arxiv.org/abs/2203.02533">Paper</a>]
+        [<a href="https://github.com/wannature/BoostMIS">GitHub</a>]
+    </div>
+    <div class="publication_bio">
+    </div>
+</div>
 
-    <li>
+<div class="publication_container mm_computing">
+    <div class="publication_title">
         <a href="https://arxiv.org/abs/2203.08013">End-to-End Modeling via Information Tree for One-Shot Natural Language Spatial Video Grounding</a><br>
-        Mengze Li<sup>#</sup>, Tianbao Wang, Haoyu Zhang, <strong><u>Shengyu Zhang</u></strong>, Zhou Zhao, Jiaxu Miao, Wenqiao Zhang, Wenming Tan, Jin Wang, PENG WANG, Shiliang Pu, Fei Wu<br>
-        Annual Meeting of the Association for Computational Linguistics (<b>ACL</b>) , 2022.<br>
-    </li>
-    <li>
-        <a href="https://arxiv.org/abs/2208.08011">Re4: Learning to Re-contrast, Re-attend, Re-construct for Multi-interest Recommendation</a> ｜ <a href="https://github.com/DeerSheep0314/Re4-Learning-to-Re-contrast-Re-attend-Re-construct-for-Multi-interest-Recommendation">[GitHub]</a><br>
-        <strong><u>Shengyu Zhang</u></strong>, Lingxiao Yang, Dong Yao, Yujie Lu, Fuli Feng, Zhou Zhao, Tat-Seng Chua and Fei Wu<br>
-        International World Wide Web Conferences (<b>WWW</b>), 2022<br>
-    </li>
-    <li>
-        <a href="https://arxiv.org/abs/2203.09129">Contrastive Learning Adopting Positive-Negative Frame Mask for Music Representation</a> | <a href="https://github.com/yaoodng7/PEMR">[GitHub]</a><br>
-        Dong Yao<sup>#</sup>, Zhou Zhao, <strong><u>Shengyu Zhang</u></strong><sup><font size="+1">&#9993;</font></sup>, Jieming Zhu, Yudong Zhu, Rui Zhang and Xiuqiang He<br>
-        International World Wide Web Conferences (<b>WWW</b>) , 2022<br>
-    </li>
-    <li>
+        Mengze Li, Tianbao Wang, Haoyu Zhang, <strong><u>Shengyu Zhang</u></strong>, Zhou Zhao, Jiaxu Miao, Wenqiao Zhang, Wenming Tan, Jin Wang, PENG WANG, Shiliang Pu, Fei Wu<br>
+        Annual Meeting of the Association for Computational Linguistics (ACL), 2022<br>
+    </div>
+    <div class="publication_bio">
+    </div>
+</div>
+
+<div class="publication_container recsys">
+    <div class="publication_title">
+        Re4: Learning to Re-contrast, Re-attend, Re-construct for Multi-interest Recommendation<br>
+        <strong><u>Shengyu Zhang</u></strong>, Lingxiao Yang, Dong Yao, Yujie Lu, Fuli Feng, Zhou Zhao, Tat-Seng Chua, Fei Wu<br>
+        International World Wide Web Conferences (WWW), 2022<br>
+        [<a href="https://arxiv.org/abs/2208.08011">Paper</a>]
+        [<a href="https://github.com/DeerSheep0314/Re4-Learning-to-Re-contrast-Re-attend-Re-construct-for-Multi-interest-Recommendation">GitHub</a>]
+    </div>
+    <div class="publication_bio">
+    </div>
+</div>
+
+<div class="publication_container recsys">
+    <div class="publication_title">
+        Contrastive Learning Adopting Positive-Negative Frame Mask for Music Representation<br>
+        Dong Yao, Zhou Zhao, <strong><u>Shengyu Zhang</u></strong>✉, Jieming Zhu, Yudong Zhu, Rui Zhang, Xiuqiang He<br>
+        International World Wide Web Conferences (WWW), 2022<br>
+        [<a href="https://arxiv.org/abs/2203.09129">Paper</a>]
+        [<a href="https://github.com/yaoodng7/PEMR">GitHub</a>]
+    </div>
+    <div class="publication_bio">
+    </div>
+</div>
+
+<div class="publication_container mm_computing">
+    <div class="publication_title">
         <a href="https://arxiv.org/abs/2112.06558">MAGIC: Multimodal relAtional Graph adversarIal inferenCe for Diverse and Unpaired Text-based Image Captioning</a><br>
         Wenqiao Zhang, Haochen Shi, Jiannan Guo, <strong><u>Shengyu Zhang</u></strong>, Qingpeng Cai, Juncheng Li, Sihui Luo, Yueting Zhuang<br>
-         Thirty-Sixth AAAI Conference on Artificial Intelligence (<b>AAAI</b>) , 2022.<br>
-    </li>
-    <li>
-        <a href="https://dl.acm.org/doi/pdf/10.1145/3488560.3498513"> Uncovering Causal Effects of Online Short Videos on Consumer Behaviors </a><br>
-        Ziqi Tan<sup>#</sup>, <strong><u>Shengyu Zhang</u></strong>, Nuanxin Hong, Kun Kuang, Yifan Yu, Zhou Zhao, Jin Yu, Hongxia Yang, Shiyuan Pan, Jingren Zhou, Fei Wu<br>
-        The Fifteenth International Conference on Web Search and Data Mining (<b>WSDM</b>), 2022.<br>
-    </li>
+        Thirty-Sixth AAAI Conference on Artificial Intelligence (AAAI), 2022<br>
+    </div>
+    <div class="publication_bio">
+    </div>
+</div>
 
-</ul>
+<div class="publication_container recsys">
+    <div class="publication_title">
+        <a href="https://dl.acm.org/doi/pdf/10.1145/3488560.3498513">Uncovering Causal Effects of Online Short Videos on Consumer Behaviors</a><br>
+        Ziqi Tan✰, <strong><u>Shengyu Zhang</u></strong>, Nuanxin Hong, Kun Kuang, Yifan Yu, Zhou Zhao, Jin Yu, Hongxia Yang, Shiyuan Pan, Jingren Zhou, Fei Wu<br>
+        The Fifteenth International Conference on Web Search and Data Mining (WSDM), 2022<br>
+    </div>
+    <div class="publication_bio">
+    </div>
+</div>
+
+
+<!-- 2021 papers ====================== -->
 <font size="3"><b>2021</b></font>
-<ul>
-    <li>
-        <a href="https://arxiv.org/abs/2109.12651">Why Do We Click: Visual Impression-aware News Recommendation</a> | <a href="https://github.com/JiahaoXun/IMRec">[GitHub]</a><br>
-        Jiahao Xun<sup>*</sup><sup>#</sup>, <strong><u>Shengyu Zhang</u></strong><sup>*</sup>, Zhou Zhao, Jieming Zhu, Qi Zhang, Jingjie Li, Xiuqiang He, Xiaofei He, Tat-Seng Chua, and Fei Wu<br>
-        ACM International Conference on Multimedia (<b>MM</b>) , 2021. Oral Presentation <br>
-    </li>
-    <li>
-        <a href="https://arxiv.org/abs/2109.05261">CauseRec: Counterfactual User Sequence Synthesis for Sequential Recommendation</a> | <a href="https://github.com/gzy-rgb/CauseRec">[GitHub]</a><br>
-        <strong><u>Shengyu Zhang</u></strong>, Dong Yao, Zhou Zhao, Tat-Seng Chua, and Fei Wu<br>
-        ACM SIGIR Conference on Research and Development in Information Retrieval (<b>SIGIR</b>) , 2021
-    </li>
-    <li>
-        <a href="https://arxiv.org/abs/2011.00422">Future-Aware Diverse Trends Framework for Recommendation</a> | <a href="https://github.com/YujieLu10/FATrec">[GitHub]<br>
-        Yujie Lu<sup>*</sup>, <strong><u>Shengyu Zhang</u></strong><sup>*</sup>, Yingxuan Huang<sup>*</sup>, Xinyao Yu, Luyao Wang, Zhou Zhao and Fei Wu<br>
-        International World Wide Web Conferences (<b>WWW</b>) , 2021</a>
-    </li>
 
-</ul>
+<div class="2021Papers" style="display: none;">
+
+    <div class="publication_container recsys">
+        <div class="publication_title">
+            Why Do We Click: Visual Impression-aware News Recommendation<br>
+            Jiahao Xun*,#, <strong><u>Shengyu Zhang</u></strong>*, Zhou Zhao, Jieming Zhu, Qi Zhang, Jingjie Li, Xiuqiang He, Xiaofei He, Tat-Seng Chua, Fei Wu<br>
+            ACM International Conference on Multimedia (MM), 2021. Oral Presentation<br>
+            [<a href="https://arxiv.org/abs/2109.12651">Paper</a>]
+            [<a href="https://github.com/JiahaoXun/IMRec">GitHub</a>]
+        </div>
+        <div class="publication_bio">
+        </div>
+    </div>
+    
+    <div class="publication_container recsys">
+        <div class="publication_title">
+            CauseRec: Counterfactual User Sequence Synthesis for Sequential Recommendation<br>
+            <strong><u>Shengyu Zhang</u></strong>, Dong Yao, Zhou Zhao, Tat-Seng Chua, Fei Wu<br>
+            ACM SIGIR Conference on Research and Development in Information Retrieval (SIGIR), 2021<br>
+            [<a href="https://arxiv.org/abs/2109.05261">Paper</a>]
+            [<a href="https://github.com/gzy-rgb/CauseRec">GitHub</a>]
+        </div>
+        <div class="publication_bio">
+        </div>
+    </div>
+    
+    <div class="publication_container recsys">
+        <div class="publication_title">
+            Future-Aware Diverse Trends Framework for Recommendation<br>
+            Yujie Lu*, <strong><u>Shengyu Zhang</u></strong>*, Yingxuan Huang*, Xinyao Yu, Luyao Wang, Zhou Zhao, Fei Wu<br>
+            International World Wide Web Conferences (WWW), 2021<br>
+            [<a href="https://arxiv.org/abs/2011.00422">Paper</a>]
+            [<a href="https://github.com/YujieLu10/FATrec">GitHub</a>]
+        </div>
+        <div class="publication_bio">
+        </div>
+    </div>
+
+</div>
+
+<div class="show_year_button">
+    <a href="javascript:toggle_my_vis('2021Papers', 'show2021Papers')" id="show2021Papers">[Show]</a>
+</div>
+
+
+
+
+<!-- 2020 ===================== -->
 <font size="3"><b>2020 and prior</b></font>
-<ul>
-    <li>
-        <a href="https://arxiv.org/abs/2008.06884">DeVLBert: Learning Deconfounded Visio-Linguistic Representations</a> | <a href='https://github.com/shengyuzhang/DeVLBert'>[GitHub]</a><br>
-        <strong><u>Shengyu Zhang</u></strong>, Tan Jiang, Tan Wang, Kun Kuang, Zhou Zhao, Jianke Zhu, Jin Yu, Hongxia Yang, and Fei Wu<br>
-        ACM International Conference on Multimedia (<b>MM</b>) , 2020
-        <br>
-    </li>
-    <li>
-        <a href="https://arxiv.org/abs/2008.06880">Poet: Product-oriented Video Captioner for E-commerce</a> | <a href="https://tianchi.aliyun.com/dataset/dataDetail?dataId=75986">[Dataset]</a><br>
-        <strong><u>Shengyu Zhang</u></strong>, Ziqi Tan, Jin Yu, Zhou Zhao, Kun Kuang, Jie Liu, Jingren Zhou, Hongxia Yang, and Fei Wu<br>
-        ACM International Conference on Multimedia (<b>MM</b>) , 2020, Oral Presentation
-        <br>
-    </li>
-    <li>
-        <a href="https://arxiv.org/abs/2006.13608">Comprehensive Information Integration Modeling Framework for Video Titling</a> | <a href='https://github.com/shengyuzhang/VideoTitling'>[Dataset]</a><br>
-        <strong><u>Shengyu Zhang</u></strong>, Ziqi Tan, Jin Yu, Zhou Zhao, Kun Kuang, Tan Jiang, Jingren Zhou, Hongxia Yang, and Fei Wu<br>
-        In SIGKDD Conference on Knowledge Discovery and Data Mining (<b>KDD</b>), 2020.
-        <br>
-    </li>
-    <li>
-        <a href="papers/PCM18-vmcan.pdf">Text-to-Image Synthesis via Visual-Memory Creative Adversarial Network</a><br>
-        <strong><u>Shengyu Zhang</u></strong>, Hao Dong, Wei Hu, Yike Guo, Chao Wu, Di Xie, Fei Wu<br>
-        In Pacific Rim Conference on Multimedia (<b>PCM</b>), 2018
-    </li>
-    <li>
-        <a href="papers/TE-KMN.pdf"> Temporality-enhanced knowledge memory network for factoid question answering</a><br>
-        Xin-yu Duan, Si-liang Tang, <strong><u>Shengyu Zhang</u></strong>, Yin Zhang, Zhou Zhao, Jian-ru Xue, Yue-ting Zhuang, Fei Wu<br>
-        Frontiers of Information Technology & Electronic Engineering, 2018
-    </li>
+
+
+<div class="2020Papers" style="display: none;">
+
+    <div class="publication_container mm_computing pretraining cross_domain_learning">
+        <div class="publication_title">
+            DeVLBert: Learning Deconfounded Visio-Linguistic Representations<br>
+            <strong><u>Shengyu Zhang</u></strong>, Tan Jiang, Tan Wang, Kun Kuang, Zhou Zhao, Jianke Zhu, Jin Yu, Hongxia Yang, Fei Wu<br>
+            ACM International Conference on Multimedia (MM), 2020<br>
+            [<a href="https://arxiv.org/abs/2008.06884">Paper</a>]
+            [<a href="https://github.com/shengyuzhang/DeVLBert">GitHub</a>]
+        </div>
+        <div class="publication_bio">
+        </div>
+    </div>
     
+    <div class="publication_container mm_computing">
+        <div class="publication_title">
+            Poet: Product-oriented Video Captioner for E-commerce<br>
+            <strong><u>Shengyu Zhang</u></strong>, Ziqi Tan, Jin Yu, Zhou Zhao, Kun Kuang, Jie Liu, Jingren Zhou, Hongxia Yang, Fei Wu<br>
+            ACM International Conference on Multimedia (MM), 2020, Oral Presentation<br>
+            [<a href="https://arxiv.org/abs/2008.06880">Paper</a>]
+            [<a href="https://tianchi.aliyun.com/dataset/dataDetail?dataId=75986">Dataset</a>]
+        </div>
+        <div class="publication_bio">
+        </div>
+    </div>
     
-</ul>
+    <div class="publication_container mm_computing">
+        <div class="publication_title">
+            Comprehensive Information Integration Modeling Framework for Video Titling<br>
+            <strong><u>Shengyu Zhang</u></strong>, Ziqi Tan, Jin Yu, Zhou Zhao, Kun Kuang, Tan Jiang, Jingren Zhou, Hongxia Yang, Fei Wu<br>
+            SIGKDD Conference on Knowledge Discovery and Data Mining (KDD), 2020<br>
+            [<a href="https://arxiv.org/abs/2006.13608">Paper</a>]
+            [<a href="https://github.com/shengyuzhang/VideoTitling">Dataset</a>]
+        </div>
+        <div class="publication_bio">
+        </div>
+    </div>
+    
+    <div class="publication_container mm_computing">
+        <div class="publication_title">
+            <a href="papers/PCM18-vmcan.pdf">Text-to-Image Synthesis via Visual-Memory Creative Adversarial Network</a><br>
+            <strong><u>Shengyu Zhang</u></strong>, Hao Dong, Wei Hu, Yike Guo, Chao Wu, Di Xie, Fei Wu<br>
+            Pacific Rim Conference on Multimedia (PCM), 2018<br>
+        </div>
+        <div class="publication_bio">
+        </div>
+    </div>
+    
+    <div class="publication_container">
+        <div class="publication_title">
+            <a href="papers/TE-KMN.pdf">Temporality-enhanced Knowledge Memory Network for Factoid Question Answering</a><br>
+            Xinyu Duan, Siliang Tang, <strong><u>Shengyu Zhang</u></strong>, Yin Zhang, Zhou Zhao, Jianru Xue, Yueting Zhuang, Fei Wu<br>
+            Frontiers of Information Technology & Electronic Engineering, 2018<br>
+        </div>
+        <div class="publication_bio">
+        </div>
+    </div>
+
+</div>
+
+<div class="show_year_button">
+    <a href="javascript:toggle_my_vis('2020Papers', 'show2020Papers')" id="show2020Papers">[Show]</a>
+</div>
 
 
 
+
+
+<!-- Workshop =================== -->
 <h2>Workshop & Short Papers<small></small></h2>
-    <ul>
+
+<div class="workshop" style="display:none">
+ 
+
+
+<div class="publication_container">
+    <div class="publication_title">
+        <a href="https://arxiv.org/abs/2110.03865">Stable Prediction on Graphs with Agnostic Distribution Shift</a><br>
+        <strong><u>Shengyu Zhang</u></strong>, Kun Kuang, Jiezhong Qiu, Jin Yu, Zhou Zhao, Hongxia Yang, Zhongfei Zhang, Fei Wu<br>
+        The 2023 ACM SIGKDD Workshop on Causal Discovery, Prediction and Decision, 2023<br>
+    </div>
+    <div class="publication_bio">
+    </div>
+</div>
+
+<div class="publication_container mm_computing">
+    <div class="publication_title">
+        <a href="https://arxiv.org/abs/2003.00303">Grounded and Controllable Image Completion by Incorporating Lexical Semantics</a><br>
+        <strong><u>Shengyu Zhang</u></strong>, Tan Jiang, Qinghao Huang, Ziqi Tan, Zhou Zhao, Siliang Tang, Jin Yu, Hongxia Yang, Yi Yang, Fei Wu<br>
+        CVPR 2021 Causality in Vision Workshop, 2021<br>
+    </div>
+    <div class="publication_bio">
+    </div>
+</div>
+
+<div class="publication_container mm_computing">
+    <div class="publication_title">
+        <a href="https://arxiv.org/abs/2008.06884">DeVLBert: Out-of-distribution Visio-Linguistic Pretraining with Causality</a><br>
+        <strong><u>Shengyu Zhang</u></strong>, Tan Jiang, Tan Wang, Kun Kuang, Zhou Zhao, Jianke Zhu, Jin Yu, Hongxia Yang, Fei Wu<br>
+        CVPR 2021 Causality in Vision Workshop, 2021<br>
+    </div>
+    <div class="publication_bio">
+    </div>
+</div>
+
+<div class="publication_container">
+    <div class="publication_title">
+        <a href="https://arxiv.org/abs/2104.00305">Modeling High-order Interactions across Multi-interests for Micro-video Recommendation</a><br>
+        Dong Yao, <strong><u>Shengyu Zhang</u></strong>, Zhou Zhao, Wenyan Fan, Jieming Zhu, Xiuqiang He, Fei Wu<br>
+        Association for the Advancement of Artificial Intelligence, 2021 (Student Abstract)<br>
+    </div>
+    <div class="publication_bio">
+    </div>
+</div>
+
+<div class="publication_container">
+    <div class="publication_title">
+        <a href="https://ojs.aaai.org/index.php/AAAI/article/view/12171">Multi-label Community-based Question Classification via Personalized Sequence Memory Network Learning</a><br>
+        Xinyu Duan, <strong><u>Shengyu Zhang</u></strong>, Zhou Zhao, Fei Wu<br>
+        Association for the Advancement of Artificial Intelligence, 2018 (Student Abstract)<br>
+    </div>
+    <div class="publication_bio">
+    </div>
+</div>
+
+
+    
+</div>
+<div class="show_year_button">
+    <a href="javascript:toggle_my_vis('workshop', 'showWorkShop')" id="showWorkShop">[Show]</a>
+</div>
+
+
+<h2 class="NONE">Talks <small></small></h2>
+    <ul class="NONE">
         <li>
-            <a href="https://arxiv.org/abs/2110.03865">Stable Prediction on Graphs with Agnostic Distribution Shift</a><br>
-            <strong><u>Shengyu Zhang</u></strong>, Kun Kuang, Jiezhong Qiu, Jin Yu, Zhou Zhao, Hongxia Yang, Zhongfei Zhang, Fei Wu<br>
-            The 2023 ACM SIGKDD Workshop on Causal Discovery, Prediction and Decision , 2023<br>
+            <div class="marker"><strong><a href="tutorials/CCIG-tutorial.pdf">Causality-inspired Deep Learning Algorithms for Device-cloud Collaboration</a> @CCIG (中国图像图形大会)</strong>
+                </div> <div>2023</div>
         </li>
         <li>
-            <a href="https://arxiv.org/abs/2003.00303">Grounded and Controllable Image Completion by Incorporating Lexical Semantics</a><br>
-            <strong><u>Shengyu Zhang</u></strong>, Tan Jiang, Qinghao Huang, Ziqi Tan, Zhou Zhao, Siliang Tang, Jin Yu, Hongxia Yang, Yi Yang, Fei Wu<br>
-            CVPR 2021 Causality in Vision Workshop , 2021<br>
+            <div class="marker"><strong>Multi-modal Understanding and Sequential Modeling in RecSys @Huawei Noah's Ark Lab</strong>
+                </div> <div>2022</div>
         </li>
         <li>
-            <a href="https://arxiv.org/abs/2008.06884">DeVLBert: Out-of-distribution Visio-Linguistic Pretraining with Causality</a><br>
-            <strong><u>Shengyu Zhang</u></strong>, Tan Jiang, Tan Wang, Kun Kuang, Zhou Zhao, Jianke Zhu, Jin Yu, Hongxia Yang, and Fei Wu<br>
-            CVPR 2021 Causality in Vision Workshop , 2021<br>
-        </li>
-        <li>
-            <a href="https://arxiv.org/abs/2104.00305">Modeling High-order Interactions across Multi-interests for Micro-video Reommendation</a><br>
-            Dong Yao, <strong><u>Shengyu Zhang</u></strong>, Zhou Zhao, Wenyan Fan, Jieming Zhu, Xiuqiang He and Fei Wu<br>
-            Association for the Advancement of Artificial Intelligence , 2021 (Student Abstract)<br>
-        </li>
-        <li>
-            <a href="https://ojs.aaai.org/index.php/AAAI/article/view/12171">Multi-label Community-based Question Classification via Personalized Sequence Memory Network Learning</a><br>
-            Xinyu Duan, <strong><u>Shengyu Zhang</u></strong>, Zhou Zhao, Fei Wu<br>
-            Association for the Advancement of Artificial Intelligence , 2018 (Student Abstract)<br>
+            <div class="marker"><strong>MCausal Multi-modal Understanding and Recommendation @NUS</strong>
+                </div> <div>2022</div>
         </li>
     </ul>
-
-
-
-    
-    
-
+<!-- Honors =================== -->
 <h2>Selected Honors Awarded</h2>
-<table style="border-spacing:2px">
-    <tbody>
-        <li>National Scholarship for PhD Student, China, 2021</li>
-        <li>WAIC Yunfan Award (World Artificial Intelligence Conference), 2021, <a href="https://inf.news/en/tech/4944a493fe80b2e28f5e522c3c57df7f.html">Report</a></li>
-        <li>Outstanding Intern in Alibaba AZFT (First Prize, Rank 1st), 2020</li>
-        <li>Doctoral Research Rising Star Award (Zhejiang University), 2020</li>
-        <li>First Prize in China Collegiate Computing Contest – AI Innovation Contest, 2018</li>
-        <li>Doctoral Outstanding Freshman Scholarship</li>
-        <!--<li></li>-->
-    </tbody>
-</table>
 
-
-<h2>Talks <small></small></h2>
 <ul>
     <li>
-        <strong><a href="tutorials/CCIG-tutorial.pdf">Causality-inspired Deep Learning Algorithms for Device-cloud Collaboration</a></strong><br>
-        CCIG (中国图像图形大会), May 11, 2023
+        <div class="marker">Outstanding Doctoral Dissertation Award of Zhejiang University</div> <div>2023</div>
     </li>
     <li>
-        <strong>Multi-modal Understanding and Sequential Modeling in Recommender Systems</strong><br>
-        Huawei Noah's Ark Lab, Jun. 2022
+        <div class="marker">Outstanding Graduates of Zhejiang Province</div> <div>2023</div>
     </li>
     <li>
-        <strong>Causal Multi-modal Understanding and Recommendation</strong><br>
-        National University of Singapore, Feb. 2022
-    
+        <div class="marker">WAIC Rising Star Award</div> <div>2021</div>
     </li>
-    
-
-
+    <li>
+        <div class="marker">National Scholarship</div> <div>2021</div>
+    </li>
+    <li>
+        <div class="marker">Doctoral Research Rising Star Award (Zhejiang University)</div> <div>2020</div>
+    </li>
+    <li>
+        <div class="marker">Doctoral Outstanding Freshman Scholarship</div> <div>2018</div>
+    </li>
 </ul>
 
 
-<h2>Academic Service <small></small></h2>
-<li>
-    Journal Reviewer: IEEE Transactions on Knowledge and Data Engineering (<b>TKDE</b>), ACM Transactions on Information Systems (<b>TOIS</b>), IEEE Transactions on Multimedia (<b>TMM</b>), IEEE Transactions on Neural Networks and Learning Systems (<b>TNNLS</b>), Computers in Human Behavior, Neurocomputing, IEEE Transactions on Cybernetics (<b>TCYB</b>), Frontiers of Information Technology & Electronic Engineering, Multimedia Systems, etc.
-</li>
-<li>
-    Conference Reviewer: NeurIPS 2023|2024 PC Member, ECCV 2024 PC Member, SIGIR 2023|2024 PC Member, KDD 2023|2024 PC Member, IJCAI 2023|2024 PC Member, AAAI 2023|2024 PC Member, ACM MM 2023 PC Member, WSDM 2023 PC Member; ARR 2022 Reviewer, SIGIR 2022 sub-reviewer, WWW 2022 sub-reviewer, CVPR Causality in Vision Workshop 2021.
-</li>
+
+<h2>Academic Service</h2>
+
+<ul>                                                               
+    <li>
+        <div class="marker">Conference Reviewer: NeurIPS 2023|2024 , ECCV 2024 , SIGIR 2023|2024 , KDD 2023|2024 , IJCAI 2023|2024 , AAAI 2023|2024 , ACM MM 2023 , WSDM 2023 ; ARR 2022 Reviewer, SIGIR 2022 sub-reviewer, WWW 2022 sub-reviewer, CVPR Causality in Vision Workshop 2021.</div>
+    </li>                                                                       
+    <li>
+        <div class="marker">Journal Reviewer: TKDE, TOIS, TMM, TNNLS, TCYB, FITEE, Neurocomputing, Computers in Human Behavior, etc.</div>
+            
+            <!-- IEEE Transactions on Knowledge and Data Engineering (<b>TKDE</b>), ACM Transactions on Information Systems (<b>TOIS</b>), IEEE Transactions on Multimedia (<b>TMM</b>), IEEE Transactions on Neural Networks and Learning Systems (<b>TNNLS</b>), Computers in Human Behavior, Neurocomputing, IEEE Transactions on Cybernetics (<b>TCYB</b>), Frontiers of Information Technology & Electronic Engineering, Multimedia Systems, etc.</div> -->
+    </li>                                                                       
+</ul>
 
 
-<div id="footer">
-    <div id="footer-text"></div>
+
 </div>
 
 </div>
 
-<div style="width: 250px;">
-
-<script type="text/javascript" id="clstr_globe" src="//cdn.clustrmaps.com/globe.js?d=GFoM4b44zylDcbMlxOkhCEKGIU8cpx85-rxchJ1UEN4"></script>
-</div>
 
 
-Last updated on Apr. 20, 2024. <!--This page is still under construction.-->
-</body></html>
+<div style="width: 250px; margin-top: 40px;">
+
+    <script type="text/javascript" id="clstr_globe" src="//cdn.clustrmaps.com/globe.js?d=GFoM4b44zylDcbMlxOkhCEKGIU8cpx85-rxchJ1UEN4"></script>
+    </div>
+    
+    
+    Last updated on May 20, 2024. Webpage template borrowed from <a href="https://pengsida.net/">Prof. Sida Peng</a>. <!--This page is still under construction.-->
+
+
+</body>
+</html>
