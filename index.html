@@ -195,6 +195,9 @@
         <div class="marker">[2025-05] We have released &nbsp; <a href="https://github.com/Reallm-Labs/InfiGUI-R1/tree/main"> InfiGUI-R1</a>! A 3B GUI agent matching or outperforming larger 7B/72B specialized models.</div>
     </li>
     <li>
+        <div class="marker">[2025-07] Three papers accepted by <i><b>&nbsp; ACM MM &nbsp;</b></i> on Device-cloud collaborative learning and Mobile Agent Safty.</div>
+    </li>
+    <li>
         <div class="marker">[2025-05] Two papers accepted by <i><b>&nbsp; ACL &nbsp;</b></i> Main Conference  on MLLM KV Cache optimization and OS Agent Survey.</div>
     </li>
     <li>
@@ -224,6 +227,9 @@
     <li>
         <div class="marker">[2024-11] COIN on MM reasoning was selected as the <i><b>&nbsp; ACM MM 2024 best paper candidate &nbsp;</b></i>.</div>
     </li>
+
+
+    <div class="news" style="display:none">
     <li>
         <div class="marker">[2024-07] Three Paper accepted by <i><b>&nbsp; ACM MM &nbsp;</b></i> on multi-model collaboration, MM reasoning, 3D Gaussian talking head.</div>
     </li>
@@ -234,9 +240,6 @@
         <div class="marker">[2024-05] Paper accepted by <i><b>&nbsp; KDD &nbsp;</b></i> Research Track on device-cloud collaborative recommendation.</div>
     </li>
     
-
-
-    <div class="news" style="display:none">
         <li>
             <div class="marker">[2024-03] Paper accepted by <i><b>&nbsp; TOIS &nbsp;</b></i> on out-of-domain model transfer without access to target domain.</div>
         </li>
@@ -316,7 +319,7 @@
         <div class="goal_tabs" id="knowledge_transfer_goal_tabs" style="display: none;">
             <div style="display: flex;">
                 <div class="goal_tab" id="cross_domain_learning_tab" onclick="toggle_goal_progress_vis(this)">Cross-domain/OOD Learning</div>
-                <div class="goal_tab" id="compression_tab" onclick="toggle_goal_progress_vis(this)">Compression</div>
+                <div class="goal_tab" id="efficient_tab" onclick="toggle_goal_progress_vis(this)">Efficient Learning</div>
                 <div class="goal_tab" id="pretraining_tab" onclick="toggle_goal_progress_vis(this)">Pretraining</div>
                 <div class="goal_tab" id="model_aggregation_tab" onclick="toggle_goal_progress_vis(this)">Model Aggregation</div>
             </div>
@@ -324,7 +327,7 @@
             <div class="goal_progress" id="cross_domain_learning">
             </div>
 
-            <div class="goal_progress" id="compression">
+            <div class="goal_progress" id="efficient">
             </div>
 
             <div class="goal_progress" id="pretraining">
@@ -335,6 +338,8 @@
         </div>
     </div>
 </div>
+
+
 
 <div class="research_summary" id="collaborative_learning" style="display:none">
 
@@ -370,6 +375,8 @@
     </div>
 </div>
 
+
+
 <div class="research_summary" id="applied_research" style="display:none">
     <img class="research_picture" src="images/AppliedResearch.jpg"> 
 
@@ -393,6 +400,8 @@
         </div>
     </div>
 </div>
+
+
 
 
 <!--  ###############################  -->
@@ -447,7 +456,7 @@
 </div>
 
 
-<div class="publication_container compression collaboration_llm">
+<div class="publication_container efficient collaboration_llm">
     <div class="publication_title">
         ModelGPT: Unleashing LLM’s Capabilities for Tailored Model Generation</br>
         Zihao Tang, Zheqi Lv, <strong><u>Shengyu Zhang</u></strong>, Fei Wu, Kun Kuang</br>
@@ -480,11 +489,51 @@
 
 <font size="3"><b>2025</b></font>
 
+<!-- cross_domain_learning, efficient, pretraining, model_aggregation, collaboration_llm_tab, collaboration_hetergeneous_tab, recsys, mm_computing -->
 
 
 
 
-<div class="publication_container collaboration_hetergeneous">
+<div class="publication_container">
+    <div class="publication_title">
+        Tackling Device Data Distribution Real-time Shift via Prototype-based Parameter Editing<br>
+        Zheqi Lv, Wenqiao Zhang, Kairui Fu, Qi Tian, <strong><u>Shengyu Zhang</u></strong>✉, Jiajie Su, Jingyuan Chen, Kun Kuang, Fei Wu <br>
+        ACM MM 2025 (to appear)<br>
+    </div>
+    <div class="publication_bio">
+        <b><i>Main Idea:</i></b> <br>
+        Device-cloud Collaborative Test-time Adaptation
+    </div>
+</div>
+
+
+<div class="publication_container">
+    <div class="publication_title">
+        CHORD: Customizing Hybrid-precision On-device Model for Sequential Recommendation with Device-cloud Collaboration<br>
+        Tianqi Liu, Kairui Fu, <strong><u>Shengyu Zhang</u></strong>✉, Wenyan Fan, Zhaocheng Du, Jieming Zhu, Fan Wu, Fei Wu <br>
+        ACM MM 2025 (to appear)<br>
+    </div>
+    <div class="publication_bio">
+        <b><i>Main Idea:</i></b> <br>
+        Device-cloud Collaborative Dynamic Model Quantization
+    </div>
+</div>
+
+
+
+<div class="publication_container">
+    <div class="publication_title">
+        Evaluating the Robustness of Multimodal Agents Against Active Environmental Injection Attacks<br>
+        Yurun Chen, Xueyu Hu, Keting Yin, Juncheng Li, <strong><u>Shengyu Zhang</u></strong>✉<br>
+    </div>
+    <div class="publication_bio">
+        <b><i>Main Idea:</i></b> <br>
+        One of the early works on Mobile Agent Safty
+    </div>
+</div>
+
+
+<div class="publication_container">
     <div class="publication_title">
         MadaKV: Adaptive Modality-Perception KV Cache Eviction for Efficient Multimodal Long-Context Inference<br>
         Kunxi Li, Zhonghua Jiang, Zhouzhou Shen, Zhaode Wang, chengfei lv, <strong><u>Shengyu Zhang</u></strong>✉, Fan Wu, Fei Wu <br>
@@ -655,7 +704,7 @@
 </div>
 
 
-<div class="publication_container compression cross_domain_learning recsys">
+<div class="publication_container efficient cross_domain_learning recsys">
     <div class="publication_title">
         <a href="https://arxiv.org/abs/2406.08804">DIET: Customized Slimming for Incompatible Networks in Sequential Recommendation</a><br>
         Kairui Fu, <strong><u>Shengyu Zhang</u></strong>✉, Zheqi Lv, Jingyuan Chen, Jiwei Li<br>
@@ -685,7 +734,7 @@
 
 
 
-<div class="publication_container compression cross_domain_learning">
+<div class="publication_container efficient cross_domain_learning">
     <div class="publication_title">
         <a href="https://arxiv.org/html/2403.07030v2">AuG-KD: Anchor-Based Mixup Generation for Out-of-Domain Knowledge Distillation</a><br>
         Zihao Tang, Zheqi Lv, <strong><u>Shengyu Zhang</u></strong>✉, Yifan Zhou, Xinyu Duan, Fei Wu, Kun Kuang<br>
@@ -1314,7 +1363,7 @@
     </div>
     
     
-    Last updated on May, 2025. Webpage template borrowed from <a href="https://pengsida.net/">Prof. Sida Peng</a>. <!--This page is still under construction.-->
+    Last updated on July, 2025. Webpage template borrowed from  <a href="https://pengsida.net/">Prof. Sida Peng</a>. <!--This page is still under construction.-->
 
 
 </body>
